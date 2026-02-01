@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <blockquote>
+      <h1>
+        <u><b>Weather APP</b></u>
+      </h1>
+    </blockquote>
+    <p>
+      A Weather App shows the current weather conditions like temperature,
+      humidity, and wind speed for any location. 🌤️
+    </p>
+    <hr />
+    <blockquote>
+      <form onsubmit="
+    getweather();
+    return false">
+        <input
+          type="text"
+          name="city"
+          id="city"
+          placeholder="Enter your city"
+        />
+        <button type="onsubmit">Check</button>
+      </form>
+    </blockquote>
+    <div id="weather"></div>
+    <script>
+      function getweather() {
+        const cityRef = document.querySelector("data.name");
+        const city = cityRef.value;
+       const API_KEY = "cbdade7bde0366db77e1ff1053ad99d1";
+
+        fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${userCityRef}&appid=${API_KEY}&units=metric`,
+        )
+        const weatherRef = document.querySelector("#weather");
+        weatherAPI
+          .then((data) => {
+            return data.json();
+          })
+          .then((data) => {
+            (console.log(data));
+         weatherRef.innerhtml = `${data.name} 
+         weather:${data.weather[0].description}
+         humidity:${data.main.humidity}
+         Temperature:${data.main.temperature} 
+         feelslike:${data.main.feelslike_c}
+         `;
+          })
+          .catch((err) => {
+            weatherRef.innerHTML = `something went wrong`;
+          });
+      }
+    </script>
+  </body>
+</html>
